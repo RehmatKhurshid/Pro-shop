@@ -13,6 +13,9 @@ const addOrderItems = asyncHandler(async (req, res) => {
         totalPrice
     } = req.body
 
+    console.log('req.body', req.body);
+    console.log('req.user._id', req.user)
+
     if(orderItems && orderItems.length === 0) {
         res.status(400)
         throw new Error('No order found')

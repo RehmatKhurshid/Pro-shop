@@ -23,6 +23,7 @@ const ShippingScreen = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
+        console
         dispatch(saveShippingAddress({address, city, postalCode, country}))
         navigate('/payment')
     }
@@ -38,7 +39,7 @@ const ShippingScreen = () => {
                 placeholder='Enter Address'
                 value={address}
                 required
-                onChange={(e) =>(e.target.value)}
+                onChange={(e) =>setAddress(e.target.value)}
                >
                </Form.Control>
             </Form.Group>

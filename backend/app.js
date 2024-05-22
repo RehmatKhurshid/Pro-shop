@@ -19,7 +19,7 @@ app.use('/api/user', userRoutes);
 app.use('/api/orders', ordersRoutes);
 app.use('/api/upload', uploadRoutes);
 
-app.get('/api/config/paypal', (req, res) => res.send(process.env.PAYPAL_CLIENT_ID))
+app.get('/api/config/paypal', (req, res) => res.send('AUksooZVKyzyfbtL5nhVWkd2KU6yxXdy8g2dbac6MdI3rpQ8tlKFqG7W8B8xXuUAXTvPoMjXy-Y0IUpU'))
 
 const __dirname = path.resolve()
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
