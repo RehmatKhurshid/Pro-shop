@@ -24,7 +24,7 @@ const userSchema = mongoose.Schema(
     isAdminRequest: {
       type: Boolean,
       default: false
-  },
+  }
   },
   {
     timestamps: true,

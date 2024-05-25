@@ -4,7 +4,7 @@ import asyncHandler from 'express-async-handler'
 import generateToken from '../utils/generateToken.js'
 
 const authUser = asyncHandler(async (req, res) => {
-    console.log('here', req.body)
+    // console.log('here', req.body)
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     console.log('user', user);
@@ -147,4 +147,54 @@ const updateUser = asyncHandler(async (req, res) => {
     }
 })
 
-export { authUser, registerUser, getUserProfile, updateUserProfile, getUsers, deleteUser, getUserById, updateUser }
+
+
+
+
+
+
+
+const updateToAdmin = asyncHandler(async (req, res) => {
+    try {
+        console.log('In update to admin');
+        const user = await User.findById(req.params.id);
+        console.log('After finding user in update to admin');
+
+        if (user) {
+            user.name = req.body.name || user.name;
+            user.email = req.body.email || user.email;
+            user.isAdminRequest = req.body.isAdminRequest;
+
+            const updatedUserToAdmin = await user.save();
+            console.log('After saving user in update to admin');
+
+            res.json({
+                id: updatedUserToAdmin._id,
+                name: updatedUserToAdmin.name,
+                email: updatedUserToAdmin.email,
+                isAdmin: updatedUserToAdmin.isAdmin,
+                isAdminRequest: updatedUserToAdmin.isAdminRequest,
+            });
+            console.log('update request sent')
+        } else {
+            res.status(404).json({ message: 'User not found' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+
+
+export {
+    authUser,
+    registerUser,
+    getUserProfile,
+    updateUserProfile,
+    getUsers,
+    deleteUser,
+    getUserById,
+    updateUser,
+    updateToAdmin
+}
