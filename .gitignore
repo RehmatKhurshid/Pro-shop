@@ -6,6 +6,8 @@
 /.pnp
 .pnp.js
 
+/frontend/node_modules
+
 # testing
 /coverage
 
@@ -24,4 +26,3 @@ yarn-debug.log*
 yarn-error.log*
 
 
-/frontend_node_modules
