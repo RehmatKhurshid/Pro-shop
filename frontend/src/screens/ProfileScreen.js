@@ -109,7 +109,7 @@ const ProfileScreen = () => {
 
                         </Form.Control>
                         <Form.Group controlId='isAdmin'>
-                           
+
                             <div className="d-flex align-items-center">
                                 <Form.Check className="me-2" />
                                 <Form.Label>Is Admin Request</Form.Label>
