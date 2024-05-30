@@ -24,4 +24,4 @@ yarn-debug.log*
 yarn-error.log*
 
 
-proshop-main\frontend\node_modules
+/proshop-main\frontend\node_modules
